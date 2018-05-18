@@ -3,7 +3,7 @@
 ![Infobox](https://i.imgur.com/HENIx5L.png)    
 
 Infobox - box with useful informations 
-This is a little box, created for forum, to inform about birthdays, events and display some intresting information about current day. 
+This is a little box, created for forums, to inform about birthdays, events and display some intresting information about current day. 
 
 Forums using this script: 
 
