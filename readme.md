@@ -17,6 +17,10 @@ You have to:
 1. Put folder "infobox" to your public_html folder. 
 2. Than, where you want to display infobox insert html code from iframe.html file.
 3. Open mysql.php and configure it with database name, username and password  
+4. Add to CRON: 
+0 0 * * * (running at 0 at night, every day) 
+wget -O - /infobox/generating/CRON/sunriseAndSunsetToFile.php
+5. Run yoursite.com/infobox/generating/CRON/sunriseAndSunsetToFile.php once time.
 
 ## How to add birthdays and events:
 
