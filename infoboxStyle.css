@@ -144,3 +144,54 @@ table {
     margin-right: 10px;
     text-align: center;
 }
+
+//iframe
+#tab {
+    z-index: 50;
+    width: 260px;
+    height: 288px;
+    position: fixed;
+    top: 100px;
+    background-color: #fff;
+    border: 5px solid #444444;
+    left: -270px;
+    -webkit-transition: left 0.5s ease-out;
+    -moz-transition: left 0.5s ease-out;
+    -o-transition: left 0.5s ease-out;
+    transition: left 0.5s ease-out;
+
+}
+#tab:after{
+    background-color: rgba(0, 0, 0, 0);
+    content: url('http://i.imgur.com/SxtzQFE.png');
+    position: absolute;
+    right: -31px;
+    top: 100px;
+    cursor: pointer;
+    height: 139px;
+}
+
+#tab:hover {
+    left: 0;
+}
+
+#iframe_cont {
+
+    height: 290px;
+    width: 260px;
+    overflow: hidden;
+
+}
+#iframe_cont2 {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    padding-right: 20px;
+}
+
+#bday_img {
+    top:317px;
+    left: 0px;
+    position: fixed;
+    z-index: 49;
+}
