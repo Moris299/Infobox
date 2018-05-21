@@ -20,11 +20,11 @@
             </div>
             <div id="dailyInfoText">
                 <div class="sunriseBox">
-                    <img src="http://moris.pw/img/sunrise.png"> 
+                    <img src="/infobox/img/sunrise.png"> 
                     <p class="sunriseText">Wschód:<br /> [@sunriseTime]</p>
                 </div>
                 <div class="sunsetBox">
-                    <img src="http://moris.pw/img/sunset.png">
+                    <img src="/infobox/img/sunset.png">
                     <p class="sunsetText">Zachód:<br /> [@sunsetTime]</p>
                 </div>
                 
