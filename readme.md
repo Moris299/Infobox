@@ -38,5 +38,5 @@ Current version: 0.1
     
 Totally free to use and edit.
 
-##Other info:
+## Other info:
 This project has been created in polish. I translated some comments in code but in future versions I will add option to translate elements to other languages. 
