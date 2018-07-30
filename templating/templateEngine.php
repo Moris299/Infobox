@@ -12,30 +12,46 @@ class templateEngine
 {
     private $templateFile;
     private $values = array();
-  
+    private $HTMLelements = array();
+    
     public function __construct($templateFile) 
     {
-        $this->file = 'templating/templates/' . $templateFile;
+        $this->templateFile = 'templating/templates/' . $templateFile;
     }
     
-    public function set($key, $value) 
+    public function generateElement($key)
+    {
+        $this->HTMLelements[$key] = file_get_contents("templating/templates/elements/$key.tpl");
+        //echo var_dump($this->HTMLelements);
+    }
+    
+    public function setValue($key, $value) 
     {
         $this->values[$key] = $value;
     }
+    
+
       
     public function output() {
-        if (!file_exists($this->file)) 
+        if (!file_exists($this->templateFile)) 
         {
-            return "Error loading template file ($this->file).";
+            return "Error loading template file ($this->templateFile).";
         }
-        $output = file_get_contents($this->file);
-      
-        foreach ($this->values as $key => $value) 
+        $output = file_get_contents("http://moris.pw/infobox/$this->templateFile");
+
+
+        foreach($this->HTMLelements as $key => $HTMLelement) 
         {
-            $tagToReplace = "[@$key]";
+            $tagToReplace = "[[$key]]";
+            $output = str_replace($tagToReplace, $HTMLelement, $output);
+        }
+      
+        foreach($this->values as $key => $value) 
+        {
+            $tagToReplace = "[$key]";
             $output = str_replace($tagToReplace, $value, $output);
         }
-      
+
         return $output;
     }
     

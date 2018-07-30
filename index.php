@@ -28,12 +28,8 @@ $events = new generating\events($dbh);
 $moveableEvents = new generating\moveableEvents($dbh); 
 $dailyInfo = new generating\dailyInfo($dbh);
 
+$tpl = new templating\templateEngine("infobox.tpl.php");
 
-if($birthdays->countTodaysBirthdays() > 0) {
-    $tpl = new templating\templateEngine("infobox.tpl");
-} else {
-    $tpl = new templating\templateEngine("infoboxWithoutBirthdays.tpl");
-}
 
 
 require_once('contents/infobox.php');

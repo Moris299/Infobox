@@ -34,8 +34,8 @@ class birthdays
             
             $result = $sth->fetchAll();            
             
-            $count = 0;
-            while(!is_null($result["$count"])) {
+            for($count = 0; !is_null($result[$count]); $count++) {
+            //while(!is_null($result["$count"])) {
                 $userBirthday = $result["$count"]['birthday'];
                 $userBirthdayDay = date("j", strtotime($userBirthday));
                 $userBirthdayMonth = date("n", strtotime($userBirthday));
@@ -44,7 +44,6 @@ class birthdays
                 $return .= '<p>';
                 $return .= $result["$count"]['name'] . '(' . $userAge . ')';
                 $return .= '</p>';
-                $count++;
             }
             return $return;
         } else {

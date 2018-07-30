@@ -1,9 +1,7 @@
 <?php
-//mysql configuration:
-
 try
 {
-    $dbh = new PDO('mysql:host=localhost;dbname=DATABASE;charset=utf8', 'USER', 'PASSWORD');
+    $dbh = new PDO('mysql:host=localhost;dbname=DB_NAME;charset=utf8', 'USERNAME', 'PASSWORD');
 }
 catch (PDOException $e)
 {
