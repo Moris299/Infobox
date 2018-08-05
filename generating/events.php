@@ -106,7 +106,7 @@ class events
                 $return .= '</p>';
                 $count++;
             }
-            echo $this->countMoveableEvents();
+
             if($this->countMoveableEvents() > 0) {
                 $return .= '<hr style="width: 100%;">';
             }
