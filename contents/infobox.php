@@ -2,9 +2,18 @@
 $tpl->generateElement('dailyInfoContainer');
 $tpl->generateElement('eventsTodayContainer');
 
-if($events->countUpcomingImportantEvernts > 0) {
+if($events->countUpcomingImportantEvernts() > 0) {
     $tpl->generateElement('upcomingImportantEvents');
+} else {
+    $tpl->deleteElement('upcomingImportantEvents');
 }
+
+if($birthdays->countTodaysBirthdays() > 0) {
+    $tpl->generateElement('todaysBirthdaysContainer');
+} else {
+    $tpl->deleteElement('todaysBirthdaysContainer');
+}
+
 
 $tpl->setValue("dailyInfo", "{$dailyInfo->getDailyInfo()}");
 $tpl->setValue("dailyInfoDay", "{$dailyInfo->getDayNum()}");
@@ -30,4 +39,4 @@ $datediff = round($datediff / (60 * 60 * 24));
 $datediff = $datediff*(-1);
 $tpl->setValue("mistrzostwa", "$datediff dni");
 
-echo $tpl->output();
+$moveableEvents->countMoveableEvents();

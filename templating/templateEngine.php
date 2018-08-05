@@ -25,6 +25,11 @@ class templateEngine
         //echo var_dump($this->HTMLelements);
     }
     
+    public function deleteElement($key) 
+    {
+        $this->HTMLelements[$key] = '';
+    }
+    
     public function setValue($key, $value) 
     {
         $this->values[$key] = $value;

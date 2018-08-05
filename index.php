@@ -1,4 +1,5 @@
 <?php
+
 //AUTOLOAD
 $autoload_underscores = function ($classname) {
     $path = str_replace('_', DIRECTORY_SEPARATOR, $classname);
@@ -28,8 +29,8 @@ $events = new generating\events($dbh);
 $moveableEvents = new generating\moveableEvents($dbh); 
 $dailyInfo = new generating\dailyInfo($dbh);
 
-$tpl = new templating\templateEngine("infobox.tpl.php");
-
-
+$tpl = new templating\templateEngine("infobox.tpl");
 
 require_once('contents/infobox.php');
+
+echo $tpl->output();

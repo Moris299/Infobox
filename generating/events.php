@@ -9,6 +9,10 @@ class events
     private $currentDay;
     private $currentMonth;
     private $currentYear;
+    private $currentNumericDayOfWeek;
+    private $firstDayOfMonth;
+    private $numericCurrentWeek;
+    private $lastDayOfMonth;
 
     public function __construct($database) 
     {
@@ -17,6 +21,29 @@ class events
         $this->currentDay = date("d");	
         $this->currentMonth = date("m");
         $this->currentYear = date("Y");
+        $this->currentNumericDayOfWeek = date("N");
+        $this->firstDayOfMonth = date("Y") . '-' . date("m") . '-' . '1';
+        $this->lastDayOfMonth = date("t");
+		$this->numericDayOfFirstWeek = date('N', strtotime("$this->firstDayOfMonth"));
+    }
+    
+    public function getFormattedDate() 
+    {
+        //formatting current day to "x,y,z" (type 1)
+        if($this->currentDay > $this->lastDayOfMonth - 7) {
+            return $this->currentNumericDayOfWeek . ',' . 'l' . '.' . $this->currentMonth;
+        } else {
+            $this->numericCurrentWeek = floor($this->currentDay / 7) + 1;
+            return $this->currentNumericDayOfWeek . ',' . $this->numericCurrentWeek . ',' . $this->currentMonth;
+        }
+    }
+    
+    public function countMoveableEvents()
+    {
+        $sth = $this->database->prepare("SELECT * FROM `moveableEvents` WHERE `date` = '{$this->getFormattedDate()}'");
+        $sth->execute();
+
+        return $sth->rowCount();
     }
     
     public function countTodaysEvents() 
@@ -79,7 +106,12 @@ class events
                 $return .= '</p>';
                 $count++;
             }
+            echo $this->countMoveableEvents();
+            if($this->countMoveableEvents() > 0) {
+                $return .= '<hr style="width: 100%;">';
+            }
             return $return;
+        
         } else {
             return 'Brak wydarzeń';
         }

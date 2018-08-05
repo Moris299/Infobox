@@ -64,7 +64,7 @@ class moveableEvents
     {
         $sth = $this->database->prepare("SELECT * FROM `moveableEvents` WHERE `date` = '{$this->getFormattedDate()}'");
         $sth->execute();
-    
+
         return $sth->rowCount();
     }
     
