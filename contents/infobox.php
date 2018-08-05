@@ -14,6 +14,12 @@ if($birthdays->countTodaysBirthdays() > 0) {
     $tpl->deleteElement('todaysBirthdaysContainer');
 }
 
+if($birthdays->countUpcomingBirthdays() > 0) {
+    $tpl->generateElement('upcomingBirthdaysContainer');
+} else {
+    $tpl->deleteElement('upcomingBirthdaysContainer');
+}
+
 
 $tpl->setValue("dailyInfo", "{$dailyInfo->getDailyInfo()}");
 $tpl->setValue("dailyInfoDay", "{$dailyInfo->getDayNum()}");
@@ -30,6 +36,7 @@ $tpl->setValue("birthdays", "{$birthdays->getTodaysBirthdays()}");
 $tpl->setValue("events", "{$events->getTodaysEvents()}");
 $tpl->setValue("moveableEvents", "{$moveableEvents->getMoveableEvents()}");
 $tpl->setValue("upcomingEvents", "{$events->getUpcomingImportantEvents()}");
+$tpl->setValue("upcomingBirthdays", "{$birthdays->getUpcomingBirthdays()}");
 
 $now = time(); // or your date as well
 $your_date = strtotime("2018-06-14");

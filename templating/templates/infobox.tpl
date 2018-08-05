@@ -14,6 +14,8 @@
     
     [[eventsTodayContainer]]
     
+    [[upcomingBirthdaysContainer]]
+    
     [[upcomingImportantEvents]]
     
 </div>
