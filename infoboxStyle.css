@@ -176,11 +176,9 @@ table {
 }
 
 #iframe_cont {
-
     height: 290px;
     width: 260px;
     overflow: hidden;
-
 }
 #iframe_cont2 {
     height: 100%;
