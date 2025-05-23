@@ -9,7 +9,7 @@ class dailyInfo
     
     public function __construct() 
     {
-         $this->sunTime = file_get_contents('http://moris.pw/infobox/generating/CRON/sunriseAndSunsetTimes.txt');
+         $this->sunTime = file_get_contents('/infobox/generating/CRON/sunriseAndSunsetTimes.txt');
     }
     
     public function getDailyInfo() 
